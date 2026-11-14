@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: #0a0a0a;
+}
+
+body {
+  @apply bg-zinc-950 font-sans text-white antialiased;
+  overflow: hidden; /* the hub is a fixed stage; content spaces scroll inside their own container */
+}
+
+/* The glowing cursor replaces the native one where a precise pointer exists. */
+@media (pointer: fine) {
+  html,
+  body,
+  a,
+  button {
+    cursor: none;
+  }
+}
+
+/* Slim scrollbar inside content spaces */
+.space-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+::selection {
+  background: rgba(216, 180, 254, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hint-bob,
+  .animate-caret,
+  .animate-shimmer {
+    animation: none !important;
+  }
+}
